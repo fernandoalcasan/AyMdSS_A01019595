@@ -1,0 +1,50 @@
+@startuml
+  Class Almacen{
+    +String Direccion;
+    void Alta(Cuadro);
+    void Baja(Cuadro);
+    void Consulta(Cuadro);
+  }
+
+  Class Comprador{
+    +String nombre;
+    void Comprar(Cuadro);
+  }
+
+  Class Vendedor{
+    +String nombre;
+    void Vender(Cuadro);
+  }
+
+  Class Cuadro{
+    +String Descripcion;
+
+  }
+
+  Class Compra{
+    +String Comprador;
+    +String Direccion;
+    -Int Precio;
+  }
+
+  Class Venta{
+    +String Vendedor;
+    +String Direccion;
+    +String Precio;
+    -int anio;
+    +String Artista;
+  }
+
+  Class Reporte{
+    +String Tipo De Obra;
+    +String Autor;
+  }
+
+  Comprador -- Cuadro : adquiere
+  Vendedor -- Cuadro : vende
+  Almacen -- Cuadro : tiene
+  Compra -- Reporte : genera
+  Venta -- Reporte : genera
+  Compra *-- Cuadro : tiene n >
+  Venta *-- Cuadro : tiene n >
+@enduml

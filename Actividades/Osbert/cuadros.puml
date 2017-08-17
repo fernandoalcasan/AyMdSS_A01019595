@@ -1,0 +1,12 @@
+@startuml
+  left to right direction
+  skinparam packageStyle rectangle
+  actor Osbert
+  actor Cliente
+  rectangle Compra-Venta-de-cuadros {
+    Osbert -- (Vender Cuadros)
+    Osbert -- (Comprar Cuadros) : extends
+    Osbert -- (Generar Reportes)
+    (Vender Cuadros) -- Cliente
+  }
+@enduml
