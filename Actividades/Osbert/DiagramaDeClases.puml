@@ -18,7 +18,7 @@
 
   Class Cuadro{
     +String Descripcion;
-
+    +String Artista
   }
 
   Class Compra{
@@ -37,14 +37,21 @@
 
   Class Reporte{
     +String Tipo De Obra;
-    +String Autor;
+    +String Artista;
+    +String Precio;
+    -int anio;
+    void Alta(Cuadro, Tipo, Costo, Fecha);
+    void Baja(Cuadro, Tipo, Costo, Fecha);
+    void Consulta(Cuadro, Artista, Tipo, Precio, Fecha);
   }
 
-  Comprador -- Cuadro : adquiere
-  Vendedor -- Cuadro : vende
-  Almacen -- Cuadro : tiene
-  Compra -- Reporte : genera
-  Venta -- Reporte : genera
+  Comprador -- Cuadro : adquiere >
+  Comprador -- Compra : realiza >
+  Vendedor -- Cuadro : vende >
+  Vendedor -- Venta : realiza >
+  Almacen -- Cuadro : tiene >
+  Compra -- Reporte : genera >
+  Venta -- Reporte : genera >
   Compra *-- Cuadro : tiene n >
   Venta *-- Cuadro : tiene n >
 @enduml
