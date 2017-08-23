@@ -1,0 +1,20 @@
+@startuml
+
+class Product{
+  +void operation();
+  +void operation2();
+}
+
+class Creator{
+  -virtual Product* createProduct(int type);
+  +Product* factoryMethod(int type);
+}
+
+class CreatorA{
+  +Product* createProduct(int type);
+}
+
+CreatorA --|> Creator
+Product -- CreatorA : regresa
+
+@enduml

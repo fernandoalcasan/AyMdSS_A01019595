@@ -1,0 +1,14 @@
+@startuml
+
+  class FactoryProduct{
+    +<<template>> Prod* factoryMethod();
+  }
+
+  class Product{
+    +void operation();
+  }
+
+  Product --|> FactoryProduct
+  Product <-- FactoryProduct : "FactoryMethod retoma Product"
+
+@enduml
