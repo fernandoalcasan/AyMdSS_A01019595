@@ -1,0 +1,11 @@
+@startuml
+  Class Singleton{
+    #static Singleton* instance;
+
+    -Singleton();
+    +static Singleton* getInstance();
+    +void operacion();
+  }
+
+  Singleton *-- Singleton : composition
+@enduml
