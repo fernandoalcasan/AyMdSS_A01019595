@@ -1,0 +1,69 @@
+@startuml
+
+  Class Computadora{
+    void proceso(+string p);
+    +string nombre;
+    virtual Computadora* clone();
+    Computadora() = default;
+  }
+
+  Class clonComputadora{
+    clonComputadora();
+    Computadora * clone();
+  }
+
+  Class fabricaCompus{
+    #static fabricaCompus* equipo;
+  	static fabricaCompus* nuevoEquipoFabrica();
+	  |template| static Equipo* Creacion();
+  }
+
+  Class Desktop{
+    Desktop();
+    Desktop(string s);
+  }
+
+  Class Laptop{
+    Laptop();
+    Laptop(string s);
+  }
+
+  Class Netbook{
+    Netbook();
+    Netbook(string s);
+  }
+
+  Class Tablet{
+    Tablet();
+    Tablet(string s);
+  }
+
+  Class ServerRack{
+    ServerRack();
+    ServerRack(string s);
+  }
+
+  Class ServerTower{
+    ServerTower();
+    ServerTower(string s);
+  }
+
+  fabricaCompus *-- fabricaCompus
+  fabricaCompus -- Computadora
+
+  fabricaCompus -- Desktop : <<friend>>
+  fabricaCompus -- Laptop: <<friend>>
+  fabricaCompus -- Netbook: <<friend>>
+  fabricaCompus -- Tablet: <<friend>>
+  fabricaCompus -- ServerRack: <<friend>>
+  fabricaCompus -- ServerTower: <<friend>>
+
+  Computadora <|... clonComputadora
+
+  clonComputadora <|-- Desktop
+  clonComputadora <|-- Laptop
+  clonComputadora <|-- Netbook
+  clonComputadora <|-- Tablet
+  clonComputadora <|-- ServerRack
+  clonComputadora <|-- ServerTower
+@enduml
