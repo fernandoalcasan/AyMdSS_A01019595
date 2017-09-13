@@ -1,0 +1,23 @@
+@startuml
+  class IntCollection{
+  	#int* array;
+  	#int size;
+  	#int cont;
+  	+IntCollection();
+  	+void addElement(int value);
+  	+IntIterator* getIterator();
+  	+int at(int pos);
+  }
+
+  class IntIterator{
+    #int cont;
+  	#IntCollection coll;
+  	+IntIterator(const IntCollection& coll) : coll(coll);
+  	+bool hasNext();
+  	+int next();
+  }
+
+IntCollection *--> IntIterator : devuelve
+IntIterator o--> IntCollection
+
+@enduml
